@@ -1,6 +1,7 @@
 import React from 'react';
 
 function ListItems(props) {
+  const status = props.status;
   const items = props.items;
 
   const listItems = items.map(item => {
@@ -25,11 +26,11 @@ function ListItems(props) {
             </button>
 
             <button
-              onclick={() => {
-                props.change();
+              onClick={() => {
+                props.complete();
               }}
             >
-              completed
+              {props.status}
             </button>
           </span>
         </p>

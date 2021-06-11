@@ -4,6 +4,7 @@ import ListItems from './ListItems';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
+
 library.add(faTrash);
 
 class App extends React.Component {
@@ -15,13 +16,13 @@ class App extends React.Component {
         text: '',
         key: ''
       },
-      status: "status",
+      status: 'status'
     };
     this.addItem = this.addItem.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.setUpdate = this.setUpdate.bind(this);
-    this.change = this.change.bind(this);
+    this.complete = this.complete.bind(this);
   }
   addItem(e) {
     e.preventDefault();
@@ -51,6 +52,11 @@ class App extends React.Component {
       items: filteredItems
     });
   }
+  complete() {
+    this.state.status = this.setState({
+      status: 'completed'
+    });
+  }
   setUpdate(text, key) {
     console.log('items:' + this.state.items);
     const items = this.state.items;
@@ -63,9 +69,6 @@ class App extends React.Component {
     this.setState({
       items: items
     });
-  }
-  change() {
-    this.setState({ status: completed });
   }
   render() {
     return (
@@ -85,7 +88,8 @@ class App extends React.Component {
             items={this.state.items}
             deleteItem={this.deleteItem}
             setUpdate={this.setUpdate}
-            change={change}
+            complete={this.complete}
+            status={this.state.status}
           />
         </header>
       </div>
