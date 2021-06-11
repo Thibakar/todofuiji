@@ -16,13 +16,17 @@ function ListItems(props) {
             }}
           />
           <span>
-            <FontAwesomeIcon
+            <button
               className="faicons"
               onClick={() => {
                 props.deleteItem(item.key);
               }}
               icon="trash"
-            />
+            >
+              Delete
+            </button>
+            <i class="fa fa-close" />
+            {/* <button onclick={() => {}}>completed</button> */}
           </span>
         </p>
       </div>
