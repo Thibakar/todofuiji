@@ -1,6 +1,5 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import FlipMove from 'react-flip-move';
 
 function ListItems(props) {
   const items = props.items;
