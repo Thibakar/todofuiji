@@ -14,12 +14,14 @@ class App extends React.Component {
       currentItem: {
         text: '',
         key: ''
-      }
+      },
+      status: "status",
     };
     this.addItem = this.addItem.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.setUpdate = this.setUpdate.bind(this);
+    this.change = this.change.bind(this);
   }
   addItem(e) {
     e.preventDefault();
@@ -62,6 +64,9 @@ class App extends React.Component {
       items: items
     });
   }
+  change() {
+    this.setState({ status: completed });
+  }
   render() {
     return (
       <div className="App">
@@ -75,12 +80,12 @@ class App extends React.Component {
             />
             <button type="submit">Add</button>
           </form>
-          <p>{this.state.items.text}</p>
 
           <ListItems
             items={this.state.items}
             deleteItem={this.deleteItem}
             setUpdate={this.setUpdate}
+            change={change}
           />
         </header>
       </div>

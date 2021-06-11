@@ -1,8 +1,8 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function ListItems(props) {
   const items = props.items;
+
   const listItems = items.map(item => {
     return (
       <div className="list" key={item.key}>
@@ -17,16 +17,20 @@ function ListItems(props) {
           />
           <span>
             <button
-              className="faicons"
               onClick={() => {
                 props.deleteItem(item.key);
               }}
-              icon="trash"
             >
-              Delete
+              delete
             </button>
-            <i class="fa fa-close" />
-            {/* <button onclick={() => {}}>completed</button> */}
+
+            <button
+              onclick={() => {
+                props.change();
+              }}
+            >
+              completed
+            </button>
           </span>
         </p>
       </div>
